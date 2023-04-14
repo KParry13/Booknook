@@ -59,3 +59,19 @@ cars_schema = CarSchema(many=True)
 
 
 # TODO: Add your schemas below
+class BookSchema(ma.Schema):
+    id = fields.Integer(primary_key=True)
+    title = fields.String(required=True)
+    author = fields.String(required=True)
+    year = fields.Integer()
+    user_id = fields.Integer()
+    user = ma.Nested(UserSchema, many=False)
+    class Meta:
+        fields = ("id", "title", "author", "year", "user_id", "user")
+
+    @post_load
+    def create_book(self, data, **kwargs):
+        return Book(**data)
+    
+book_schema = BookSchema()
+books_schema = BookSchema(many=True)

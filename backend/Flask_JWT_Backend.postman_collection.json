@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "cd837796-eb57-45fd-b3d4-8a3269938905",
-		"name": "Flask_JWT_Backend",
+		"_postman_id": "fdf13536-5a99-44cd-9734-fb9fc1ba9705",
+		"name": "Flask_JWT_Backend Copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "13455599"
+		"_exporter_id": "12194997"
 	},
 	"item": [
 		{
@@ -131,7 +131,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"make\": \"totya\",\r\n    \"model\": \"Corolla\",\r\n    \"year\": \"2020\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -172,7 +172,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"make\": \"totya\",\r\n    \"model\": \"Corolla\",\r\n    \"year\": \"2020\"\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -212,7 +212,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"book_id\": \"RXPjuQAACAAJ\",\r\n    \"text\": \"Great book\",\r\n    \"rating\": 5\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"

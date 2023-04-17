@@ -10,7 +10,7 @@ from resources.auth import LoginResource, RegisterResource
 from resources.cars import AllCarResource, UserCarResource
 from dotenv import load_dotenv
 from os import environ
-from resources.books import UserBookResource, UserFavorites, UserReviews, AllBookResource, GetBookInformation
+from resources.books import UserBookResource, UserFavorites, UserReviews, AllBookResource, GetBookInformation, ReviewDetailResource
 
 # Adds variables from .env file to environment
 load_dotenv()
@@ -63,5 +63,6 @@ def create_routes():
     api.add_resource(UserBookResource, '/api/user_books')
     api.add_resource(AllBookResource, '/api/books')
     api.add_resource(GetBookInformation, '/api/books/<int:book_id>')
+    api.add_resource(ReviewDetailResource, '/api/user_reviews/<int:review_id>')
     
     return api

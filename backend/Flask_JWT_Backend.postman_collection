@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "462ff931-8c81-4d67-b3b2-fc076c76d68d",
+		"name": "Flask_JWT_Backend Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26275096"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"lucky\",\r\n    \"email\": \"lucky@lucky.lucky\",\r\n    \"password\": \"password\",\r\n    \"first_name\": \"lucky\",\r\n    \"last_name\": \"luck\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/auth/register",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login_User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"regina\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/auth/login",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cars",
+			"item": [
+				{
+					"name": "Post User Car (Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTQ5ODAxMiwianRpIjoiOWFmMzI4NGQtMTdhYS00OWM5LTkxNTUtZGY1YTdmYmJmOTgwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjIiLCJuYmYiOjE2ODE0OTgwMTIsImV4cCI6MTY4MjEwMjgxMiwiaWQiOjIsInVzZXJuYW1lIjoia2F5bGEiLCJmaXJzdF9uYW1lIjoia2F5bGEifQ.eZt0Fj7WQrhXwYmGgLW9VjXx1LUvQT1EV7aegvnK5NM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"make\": \"hyundia\",\r\n    \"model\": \"tuscon\",\r\n    \"year\": 2019\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_cars",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Cars (Protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTQ5NzUxOCwianRpIjoiODY2MmU1ZjItZmM2Zi00Y2RmLTk2ZTQtYjYyYzJjYWJiODBmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjMiLCJuYmYiOjE2ODE0OTc1MTgsImV4cCI6MTY4MjEwMjMxOCwiaWQiOjMsInVzZXJuYW1lIjoiYm9iIiwiZmlyc3RfbmFtZSI6ImJvYiJ9.FRVhkLD7TjeVgSiEuttMcZYkQlA7z2Mw4wVY_QRBJkA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_cars",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Cars (Unprotected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/cars",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Cars By Make (Unprotected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY3NDE2MDc5OSwianRpIjoiYjI4MTk4YTEtYTU5Yi00MGNlLTg3MDEtMDhiNTliYzQzOGY3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2NzQxNjA3OTksImV4cCI6MTY3NDc2NTU5OSwiaWQiOjEsInVzZXJuYW1lIjoibW9icmllbiIsImZpcnN0X25hbWUiOiJNaWxlcyJ9.Uksfy1L7nnwCOnoFWYvv1cwEeB4BsZuL0KgZBr3kSBg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/cars?make=kia",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"cars"
+							],
+							"query": [
+								{
+									"key": "make",
+									"value": "kia"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Put Edit Review (Protected)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc1OTc2MCwianRpIjoiYzM4YzJlMWQtMTEwNC00YzdmLTlhMzktYjhjODQ0OGU3NTZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NTk3NjAsImV4cCI6MTY4MjM2NDU2MCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.DdlMYZafhNVvSEvWebUBtQm2cFyAOyxTw81Aeq9V5Fo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"8\",\r\n    \"text\": \"Ok for kids.\",\r\n    \"rating\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_reviews/6",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_reviews",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review (Protected)",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc1OTc2MCwianRpIjoiYzM4YzJlMWQtMTEwNC00YzdmLTlhMzktYjhjODQ0OGU3NTZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NTk3NjAsImV4cCI6MTY4MjM2NDU2MCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.DdlMYZafhNVvSEvWebUBtQm2cFyAOyxTw81Aeq9V5Fo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"8\",\r\n    \"text\": \"Great for kids.\",\r\n    \"rating\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_reviews/13",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_reviews",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User Review (Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc1OTc2MCwianRpIjoiYzM4YzJlMWQtMTEwNC00YzdmLTlhMzktYjhjODQ0OGU3NTZjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NTk3NjAsImV4cCI6MTY4MjM2NDU2MCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.DdlMYZafhNVvSEvWebUBtQm2cFyAOyxTw81Aeq9V5Fo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"8\",\r\n    \"text\": \"Great for kids.\",\r\n    \"rating\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_reviews",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post User Favoite (Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc0MjI3NSwianRpIjoiN2VjN2EyNmItM2ZhMy00Mjk0LTk2OGMtZmRkYmI3NTU4NTEzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjIiLCJuYmYiOjE2ODE3NDIyNzUsImV4cCI6MTY4MjM0NzA3NSwiaWQiOjIsInVzZXJuYW1lIjoia2F5bGEiLCJmaXJzdF9uYW1lIjoia2F5bGEifQ.yYFmfiLU0rL3M9w5funM7xUF8mDkMqiHVncT_JRNYEs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"book_id\": \"4\",\r\n    \"title\": \"What's Next?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_favorites",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Book (Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc0NTc1OCwianRpIjoiZGExZGQ5Y2YtYjMxNi00ZTAxLWFkODAtMzI0YTIzMzNmM2E3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NDU3NTgsImV4cCI6MTY4MjM1MDU1OCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.963eGV4P1_Svn9IwWjb7mxXMIY9QRQebuSy5roVZlFs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Little Train that Could\",\r\n    \"author\": \"Thomas The Train\",\r\n    \"year\": 2016\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_books",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Books (Protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc0NTAzMSwianRpIjoiZjUyYmU1OTAtMWNkYi00NDA4LWJiMTItZjI4ZGZlYWY0NDJhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjMiLCJuYmYiOjE2ODE3NDUwMzEsImV4cCI6MTY4MjM0OTgzMSwiaWQiOjMsInVzZXJuYW1lIjoiYm9iIiwiZmlyc3RfbmFtZSI6ImJvYiJ9.9ppbkYinwVJ3jYWAOZjZJtKJ_DlZwdyZx9axYqBGwk8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_books",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Book Info (Protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc1OTI4NCwianRpIjoiOTMwYjkyMGItYTk0Mi00NDI5LTgzZTItY2ZhNzY1NjBiMDFhIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NTkyODQsImV4cCI6MTY4MjM2NDA4NCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.Cx852VMacOd0FBDU26oU-daFbGjnuYXIltH6DfMZeis",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/books/8",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Favorite (Protected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc1MTAxOSwianRpIjoiNGJlZmU3NGQtY2FjNy00ZTI5LWIwODEtNmE2ZjliYzkxNzM1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjIiLCJuYmYiOjE2ODE3NTEwMTksImV4cCI6MTY4MjM1NTgxOSwiaWQiOjIsInVzZXJuYW1lIjoia2F5bGEiLCJmaXJzdF9uYW1lIjoia2F5bGEifQ.8GrHNQ5nuaqOYepbqbnhWPCIwIeYXd7StrmOcoiF0qc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/user_favorites",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user_favorites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Books (Unprotected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "127.0.0.1:5000/api/books",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Books By Title (Unprotected)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTY4MTc0NTc1OCwianRpIjoiZGExZGQ5Y2YtYjMxNi00ZTAxLWFkODAtMzI0YTIzMzNmM2E3IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE2ODE3NDU3NTgsImV4cCI6MTY4MjM1MDU1OCwiaWQiOjEsInVzZXJuYW1lIjoicmVnaW5hIiwiZmlyc3RfbmFtZSI6InJlZ2luYSJ9.963eGV4P1_Svn9IwWjb7mxXMIY9QRQebuSy5roVZlFs",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/api/books?title=Master Mind",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"books"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Master Mind"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -57,15 +57,6 @@ class UserFavorites(Resource):
         db.session.commit()
         return favorite_schema.dump(new_favorite), 201
 
-
-# (10 points): As a developer, I want to create a GetBookInformation Resource with a get() method that does the following things: 
-# Accepts a value from the request’s URL (The book_id of the Book I am trying to get Details for). 
-# Responds with a custom response dictionary that contains:
-#  all Reviews from the database that are related to the book_id sent in the URL. 
-# An average of all user ratings.
-# A true/false property as to whether the logged-in user has favorited this book.
-# Returns a 200 status code.
-
 class GetBookInformation(Resource):
     @jwt_required()
     def get (self, book_id):
@@ -95,5 +86,27 @@ class GetBookInformation(Resource):
             "favorited": is_favorited
         }
         return custom_response, 200
+
+class ReviewDetailResource(Resource):
+    @jwt_required()
+    def put (self, review_id):
+        user_id = get_jwt_identity()
+        edit_review = Review.query.get_or_404(review_id)
+        if "book_id" in request.json:
+            edit_review.book_id=request.json["book_id"]
+        if "text" in request.json:
+            edit_review.text=request.json["text"]
+        if "rating" in request.json:
+            edit_review.rating=request.json["rating"]
+        db.session.commit()
+        return review_schema.dump(edit_review), 200
+    
+    @jwt_required()
+    def delete(self, review_id):
+        user_id = get_jwt_identity()
+        delete_review = Review.query.get_or_404(review_id)
+        db.session.delete(delete_review)
+        db.session.commit()
+        return '', 204
 
 

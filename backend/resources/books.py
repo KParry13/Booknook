@@ -70,14 +70,14 @@ class GetBookInformation(Resource):
     @jwt_required()
     def get (self, book_id):
         user_id = get_jwt_identity()
-        book_info = Book.query.get_or_404(book_id)
+        book_info = Review.query.filter_by(book_id=book_id).all()
 
         reviews = []
         ratings = []
         is_favorited = False
 
         for review in book_info:
-            reviews.append(review.text)
+            reviews.append(review)
             ratings.append(review.rating)
 
         if len(ratings) > 0:
@@ -85,12 +85,12 @@ class GetBookInformation(Resource):
         else:
             average_rating = "N/A"
 
-        favorite = Favorite.query.filter_by(user_id=user_id, book_id=book_id) 
+        favorite = Favorite.query.filter_by(user_id=user_id, book_id=book_id).first()
         if favorite:
             is_favorited = True
 
         custom_response = {
-            "reviews": reviews,
+            "reviews": reviews_schema.dump(reviews),
             "average_rating": average_rating,
             "favorited": is_favorited
         }

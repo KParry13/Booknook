@@ -58,4 +58,9 @@ class UserFavorites(Resource):
         return favorite_schema.dump(new_favorite), 201
 
 class GetBookInformation(Resource):
-    pass 
+    # def get (self):
+    #     custom_response = {}
+    #     book_info = Book.query.get_or_404()
+    #     custom_response["reviews"] = book_schema.dump(book_info)
+    #     custom_response["avg_ratings"] = 
+    pass

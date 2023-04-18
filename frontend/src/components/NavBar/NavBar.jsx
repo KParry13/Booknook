@@ -6,14 +6,18 @@ import "./NavBar.css";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
+  
   const navigate = useNavigate();
   return (
     <div className="navBar">
       <ul>
         <li className="brand">
           <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>React/Flask JWT</b>
+            <b>BookNook</b>
           </Link>
+        </li>
+        <li>
+          <button onClick={searchBooks}>Search</button>
         </li>
         <li>
           {user ? (

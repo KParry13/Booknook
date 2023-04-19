@@ -3,8 +3,6 @@ import { useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
-import SearchBar from "../SearchBar/SearchBar";
-import SearchPage from "../../pages/SearchPage/SearchPage";
 
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
@@ -19,7 +17,7 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link to="/searchbar" >
+          <Link to="/search" >
             <button>Search Page</button>
           </Link>
           {user ? (

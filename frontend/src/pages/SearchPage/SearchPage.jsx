@@ -1,7 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import ResultsList from "../../components/ResultsList/ResultsList";
 
 const SearchPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -10,9 +11,10 @@ const SearchPage = () => {
    
     const fetchBooks = async () => {
       try {
-        let response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`, {
-        });
-        setSearchResults(response.data);
+        let response = await axios.get(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`
+        );
+        setSearchResults(response.data.items);
       } catch (error) {
         console.log(error.response.data);
       }
@@ -31,7 +33,7 @@ const SearchPage = () => {
           setSearchTerm={setSearchTerm}
           handleSubmit={handleSubmit}
         />
-        {/* <ResultsList searchResults={searchResults} /> */}
+        <ResultsList searchResults={searchResults} />
       </div>
     );
   };

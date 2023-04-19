@@ -2,9 +2,11 @@ import React from "react";
 
 
 const SearchBar = ({searchTerm = "", setSearchTerm, handleSubmit}) => {
+    
     return (
-        <form onSubmit={(e) => handleSubmit(e)}>
+        <form onSubmit={(e) => handleSubmit(e)} className="searchForm"> 
             <input
+                type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
             />
@@ -12,5 +14,5 @@ const SearchBar = ({searchTerm = "", setSearchTerm, handleSubmit}) => {
         </form>
     )
 }
- 
+
 export default SearchBar;

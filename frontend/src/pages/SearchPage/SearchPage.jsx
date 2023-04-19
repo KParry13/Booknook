@@ -8,7 +8,6 @@ const SearchPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
   
-   
     const fetchBooks = async () => {
       try {
         let response = await axios.get(

@@ -55,7 +55,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/search" element={<SearchPage />} />
-        
+        <Route path="/details/:bookId" element={<BookDetailsPage />} />
       </Routes>
       <Footer />
     </div>

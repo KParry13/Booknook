@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ResultsList = ({searchResults}) => {
     console.log(searchResults)
@@ -6,13 +7,14 @@ const ResultsList = ({searchResults}) => {
         <div>
             <h2>Results</h2>
             {searchResults.map((book, index) => (
-                <div key={index}>
-                    <h3>{book.items[0].volumeInfo.title}</h3>
-                </div>
+                <Link key={index} to={`/details/${book.id}`}>
+                    <div >
+                        <h3>{book.id}</h3>
+                    </div>
+                </Link>
             ))} 
         </div>
      );
 }
  
 export default ResultsList;
-

@@ -1,17 +1,16 @@
 import React from "react";
-import { useContext } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import AuthContext from "../../context/AuthContext";
 
-const SearchBar = (props) => {
 
-    const { searchBooks,  }
-
-    return ( 
-        <Link to="/search">
-            <p>Search</p>
-        </Link>
-     );
+const SearchBar = ({searchTerm = "", setSearchTerm, handleSubmit}) => {
+    return (
+        <form onSubmit={(e) => handleSubmit(e)}>
+            <input
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <button type="submit">Search</button>
+        </form>
+    )
 }
  
 export default SearchBar;

@@ -21,9 +21,11 @@ const Navbar = () => {
             <button>Search Page</button>
           </Link>
 
-          <Link to="/favorites" >
+          {user ? (
+            <Link to="/favorites" >
             <button>Favorites Page</button>
-          </Link>
+            </Link>
+          ) : null }
 
           {user ? (
             <button onClick={logoutUser}>Logout</button>

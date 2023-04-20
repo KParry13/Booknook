@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import Book from '../../components/Book/Book';
+import ReviewList from '../../components/ReviewList/ReviewList'
+import ReviewForm from '../../components/ReviewForm/ReviewForm'
 
 const BookDetailsPage = () => {
     const { bookId } = useParams()
     const [bookDetails, setBookDetails] = useState({})
     const [isLoading, setIsLoading] = useState(true)
+    const [bookReviews, setBookReviews] = useState({})
 
     useEffect(() => {
         fetchBookDetails();
@@ -22,6 +25,21 @@ const BookDetailsPage = () => {
             console.log(error)
         }
     }
+
+    useEffect(() => {
+        fetchBookReviews();
+    }, []);
+    const fetchBookReviews = async () => {
+        try {
+            let response = await axios.get(
+                `http://127.0.0.1:5000/api/books/${bookId}`
+            );
+            setBookReviews(response.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return ( 
         <div>Book Details Page
         {isLoading ? (
@@ -29,15 +47,11 @@ const BookDetailsPage = () => {
         ) : (
             <div>
                 <div>
-                    <img src={bookDetails.volumeInfo.imageLinks.thumbnail}></img>
-                    <h3>Title: {bookDetails.volumeInfo.title} </h3>
-                    <h3>Author: {bookDetails.volumeInfo.authors}</h3>
-                    <h4>Description: {bookDetails.volumeInfo.description}</h4>
+                    <Book bookDetails={bookDetails}/>
                 </div>
                 <br></br>
                 <div>
-                    <h3>Average Rating: {bookDetails.volumeInfo.averageRating}</h3>
-                    {/* <h4>Reviews: {bookDetails} </h4> */}
+                    <ReviewList bookReviews={bookReviews} />
                 </div>
             </div>  
         )}

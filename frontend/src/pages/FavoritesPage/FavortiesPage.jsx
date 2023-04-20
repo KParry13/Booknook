@@ -7,7 +7,7 @@ import useAuth from "../../hooks/useAuth";
 const FavoritesPage = () => {
 
     const [user, token] = useAuth();
-    const [ favorites, setFavorites] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
     useEffect(() => {
         const fetchFavorites = async () => {
@@ -19,6 +19,7 @@ const FavoritesPage = () => {
                   Authorization: "Bearer " + token,
                 },
               });
+              console.log(response.data)
               setFavorites(response.data);
       } catch (error) {
         console.log(error.response.data);
@@ -28,15 +29,15 @@ const FavoritesPage = () => {
   }, [token]);
     return ( 
         <div>
-            <div>{user.username}'s Favorites!</div>
-            {favorites &&
-        favorites.map((book) => (
-          <p key={book.id}>
-            {book.thumbnail} {book.author} {book.title}
-          </p>
-        ))}
+            <FavoritesList 
+            user={user}
+            favorites={favorites}
+            setFavorites={setFavorites}
+            
+            />
         </div>
      );
 }
  
 export default FavoritesPage;
+

@@ -28,6 +28,7 @@ const BookDetailsPage = () => {
             <div>Loading...</div>
         ) : (
             <div>
+                {/* <img src={bookDetails.} */}
                 <h3>Title: {bookDetails.title} </h3>
                 <h3>Author: {bookDetails.author}</h3>
             </div>

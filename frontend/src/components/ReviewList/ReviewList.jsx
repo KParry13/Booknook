@@ -5,7 +5,7 @@ const ReviewList = ({bookReviews, bookDetails}) => {
     return (
         <div>
             <h3>Average Rating: {bookDetails.volumeInfo.averageRating}</h3>
-            <h4>Review List {bookReviews} </h4>
+            {/* <h4>Review List {bookReviews} </h4> */}
         </div>
     )
 }

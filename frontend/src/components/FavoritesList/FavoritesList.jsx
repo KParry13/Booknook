@@ -9,7 +9,7 @@ const FavoritesList = ({user, favorites, setFavorites}) => {
             {favorites &&
             favorites.map((book) => (
             <p key={book.id}>
-            {book.thumbnail} {book.author} {book.title}
+            {book.thumbnail} {book.title}
             </p>
         ))}
         </div>

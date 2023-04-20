@@ -33,7 +33,7 @@ class Car(db.Model):
 # TODO: Add your models below, remember to add a new migration and upgrade database
 
 class Book(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(255), primary_key=True)
     title = db.Column(db.String(200), nullable=False)
     author = db.Column(db.String(200), nullable=False)
     year = db.Column(db.Integer)

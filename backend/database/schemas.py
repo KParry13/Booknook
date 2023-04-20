@@ -60,7 +60,7 @@ cars_schema = CarSchema(many=True)
 
 # TODO: Add your schemas below
 class BookSchema(ma.Schema):
-    id = fields.Integer(primary_key=True)
+    id = fields.String(primary_key=True)
     title = fields.String(required=True)
     author = fields.String(required=True)
     year = fields.Integer()

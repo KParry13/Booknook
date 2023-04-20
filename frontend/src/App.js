@@ -45,7 +45,7 @@ function App() {
           }
         />
         <Route
-          path="/"
+          path="/favorites"
           element={
             <PrivateRoute>
               <FavoritesPage />

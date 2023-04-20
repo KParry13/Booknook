@@ -20,6 +20,11 @@ const Navbar = () => {
           <Link to="/search" >
             <button>Search Page</button>
           </Link>
+
+          <Link to="/favorites" >
+            <button>Favorites Page</button>
+          </Link>
+
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (

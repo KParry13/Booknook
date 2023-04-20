@@ -28,10 +28,18 @@ const BookDetailsPage = () => {
             <div>Loading...</div>
         ) : (
             <div>
-                {/* <img src={bookDetails.} */}
-                <h3>Title: {bookDetails.title} </h3>
-                <h3>Author: {bookDetails.author}</h3>
-            </div>
+                <div>
+                    <img src={bookDetails.volumeInfo.imageLinks.thumbnail}></img>
+                    <h3>Title: {bookDetails.volumeInfo.title} </h3>
+                    <h3>Author: {bookDetails.volumeInfo.authors}</h3>
+                    <h4>Description: {bookDetails.volumeInfo.description}</h4>
+                </div>
+                <br></br>
+                <div>
+                    <h3>Average Rating: {bookDetails.volumeInfo.averageRating}</h3>
+                    {/* <h4>Reviews: {bookDetails} </h4> */}
+                </div>
+            </div>  
         )}
 
         </div>

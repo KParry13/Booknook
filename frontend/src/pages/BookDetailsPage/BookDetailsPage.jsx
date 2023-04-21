@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Book from '../../components/Book/Book';
 import ReviewList from '../../components/ReviewList/ReviewList'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import useAuth from "../../hooks/useAuth";
+import useCustomForm from '../../hooks/useCustomForm';
 
 
 const BookDetailsPage = () => {
@@ -14,7 +15,7 @@ const BookDetailsPage = () => {
     const [bookReviews, setBookReviews] = useState({});
     const [user, token] = useAuth();
     const navigate = useNavigate();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm();
+    
 
     const fetchBookDetails = async () => {
         try {
@@ -22,7 +23,6 @@ const BookDetailsPage = () => {
                 `https://www.googleapis.com/books/v1/volumes/${bookId}`
             );
             setBookDetails(response.data)
-            // console.log(response.data)
             setIsLoading(false);
         } catch (error) {
             console.log(error)
@@ -43,7 +43,6 @@ const BookDetailsPage = () => {
             console.log(error)
         }
     }
-
 
 
     useEffect(() => {
@@ -67,6 +66,7 @@ const BookDetailsPage = () => {
                 <div>
                     <ReviewList bookReviews={bookReviews} bookDetails={bookDetails}/>
                 </div>
+                <ReviewForm bookId={bookId} fetchBookReviews={fetchBookReviews}/>
             </div>  
         )}
 

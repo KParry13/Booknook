@@ -4,12 +4,12 @@ const ReviewList = ({bookReviews, bookDetails}) => {
     console.log(bookReviews)
     return (
         <div>
-            {bookReviews.reviews.map((item => 
-                <p>
-            <h5>Average Rating: {item.rating}</h5>
+            <h5>Average Rating: {bookReviews.average_rating}</h5>
             <h4>Review List</h4>
-                 {item.text} 
-                </p>
+            {bookReviews.reviews.map((item => 
+            <p>
+            {item.text} 
+            </p>
             ))}
             
             

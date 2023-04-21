@@ -42,7 +42,7 @@ class Book(db.Model):
 
 class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id = db.Column(db.String(255), db.ForeignKey('book.id'))
+    book_id = db.Column(db.String(255))
     text = db.Column(db.String(255), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
@@ -50,8 +50,8 @@ class Review(db.Model):
 
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    book_id = db.Column(db.String(255), db.ForeignKey('book.id'))
+    book_id = db.Column(db.String(255))
     title = db.Column(db.String(255), nullable=False)
-    thumbnail_url = db.Column(db.String(255))
+    thumbnail_url = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = db.relationship("User")

@@ -9,6 +9,7 @@ const ResultsList = ({searchResults}) => {
             {searchResults.map((book, index) => (
                 <Link key={index} to={`/details/${book.id}`}>
                     <div >
+                        <img src={book.volumeInfo.imageLinks.thumbnail}></img>
                         <h3>{book.volumeInfo.title}</h3>
                     </div>
                 </Link>

@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom"
 
-const FavoritesList = ({user, favorites, setFavorites}) => {
+import useAuth from "../../hooks/useAuth";
 
+const FavoritesList = ({user, favorites}) => {
+    const [user, token] = useAuth();
+    
+    
     return ( 
         <div>
             <div>{user.username}'s Favorites!</div>
             {favorites &&
             favorites.map((book) => (
             <p key={book.id}>
-            {book.thumbnail} {book.title}
+            <img src={book.thumbnail_url}></img> {book.title}
             </p>
         ))}
         </div>

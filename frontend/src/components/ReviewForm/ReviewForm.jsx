@@ -4,17 +4,16 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 
 const ReviewForm = ({bookId, fetchBookReviews} ) => {
-const [user, token] = useAuth();
-const defaultValues = {
-    "book_id": bookId,
-    "text": "",
-    "rating": ""
+    const [user, token] = useAuth();
+    const defaultValues = {
+        "book_id": bookId,
+        "text": "",
+        "rating": ""
 }
 
     const [formData, handleInputChange, handleSubmit] = useCustomForm(defaultValues,postNewReview);
 
     async function postNewReview(){
-        
         try {
             let response = await axios.post("http://127.0.0.1:5000/api/user_reviews", formData, {
                 headers: {

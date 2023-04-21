@@ -1,12 +1,12 @@
 import React from "react";
 
-const ReviewList = ({bookReviews, bookDetails}) => {
+const ReviewList = ({bookReviews}) => {
     console.log(bookReviews)
     return (
         <div>
             <h5>Average Rating: {bookReviews.average_rating}</h5>
             <h4>Review List</h4>
-            {bookReviews.reviews.map((item => 
+            {bookReviews.reviews[0] && bookReviews.reviews.map((item => 
             <p>
             {item.text} 
             </p>

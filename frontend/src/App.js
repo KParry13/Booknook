@@ -37,7 +37,7 @@ function App() {
           }
         />
         <Route
-          path="/addReview"
+          path="/"
           element={
             <PrivateRoute>
               <BookDetailsPage />

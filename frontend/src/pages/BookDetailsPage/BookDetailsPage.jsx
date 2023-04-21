@@ -1,17 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Book from '../../components/Book/Book';
 import ReviewList from '../../components/ReviewList/ReviewList'
 import ReviewForm from '../../components/ReviewForm/ReviewForm'
 import useAuth from "../../hooks/useAuth";
 
+
 const BookDetailsPage = () => {
-    const { bookId } = useParams()
-    const [bookDetails, setBookDetails] = useState()
-    const [isLoading, setIsLoading] = useState(true)
-    const [bookReviews, setBookReviews] = useState({})
+    const { bookId } = useParams();
+    const [bookDetails, setBookDetails] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+    const [bookReviews, setBookReviews] = useState({});
     const [user, token] = useAuth();
+    const navigate = useNavigate();
+    const [formData, handleInputChange, handleSubmit] = useCustomForm();
 
     const fetchBookDetails = async () => {
         try {
@@ -40,6 +43,9 @@ const BookDetailsPage = () => {
             console.log(error)
         }
     }
+
+
+
     useEffect(() => {
         fetchBookDetails();
     }, []);

@@ -11,6 +11,7 @@ const BookDetailsPage = () => {
   const [bookDetails, setBookDetails] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [bookReviews, setBookReviews] = useState({});
+  const [newFavorite, setNewFavorite] = useState([])
   const [user, token] = useAuth();
 
   const fetchBookDetails = async () => {
@@ -58,7 +59,7 @@ const BookDetailsPage = () => {
           }
         );
           console.log(response.data)
-          fetchBookReviews()
+          setNewFavorite(response.data)
     } catch (error) {
         
     }
@@ -74,13 +75,13 @@ const BookDetailsPage = () => {
 
   return (
     <div>
-      Book Details Page
+     <h2>Book Details Page</h2>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
         <div>
           <div>
-            <Book bookDetails={bookDetails} bookReviews={bookReviews} />
+            <Book bookDetails={bookDetails} bookReviews={bookReviews} newFavorite={newFavorite} />
           </div>
           <br></br>
           <div>

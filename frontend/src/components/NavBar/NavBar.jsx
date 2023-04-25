@@ -18,12 +18,12 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/search" >
-            <button>Search Page</button>
+            <button>Search</button>
           </Link>
 
           {user ? (
             <Link to="/favorites" >
-            <button>Favorites Page</button>
+            <button>Favorites</button>
             </Link>
           ) : null }
 

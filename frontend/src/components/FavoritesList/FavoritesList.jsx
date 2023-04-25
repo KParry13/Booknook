@@ -1,9 +1,9 @@
 import React from "react";
 
-import useAuth from "../../hooks/useAuth";
+
 
 const FavoritesList = ({user, favorites}) => {
-    const [user, token] = useAuth();
+    
     
     
     return ( 

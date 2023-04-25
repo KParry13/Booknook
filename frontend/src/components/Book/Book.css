@@ -1,0 +1,11 @@
+.detail {
+    margin: 1rem;
+}
+
+.favorited {
+    color: orange;
+}
+
+.notFavorited {
+    color: darkred;
+}

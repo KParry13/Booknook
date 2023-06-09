@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Book.css"
 
-const Book = ({bookDetails, bookReviews, newFavorite}) => {
+const Book = ({bookDetails, bookReviews, newFavorite, postNewFavorite}) => {
 const [addFav, setAddFav] = useState("active")
 
 function handleFavorite(){
@@ -19,12 +19,12 @@ function handleFavorite(){
              : <div className="notFavorited">Not Favorited</div>
             } </h3>
             <h3>{bookReviews.favorited ? null
-             : <button type='button' className={addFav} onClick={handleFavorite}>Add Favorite
+             : <button type='button' className={addFav} onClick={() => postNewFavorite()}>Add Favorite
                 <div>{newFavorite}</div>
                 </button>
             } </h3>
             
-        {/* {bookReviews.favorited ? "condition was true": "conditionis false"} */}
+        {/* {bookReviews.favorited ? "condition is true": "condition is false"} */}
         </div>
 
      );

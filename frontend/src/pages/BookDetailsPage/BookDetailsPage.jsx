@@ -59,7 +59,8 @@ const BookDetailsPage = () => {
           }
         );
           console.log(response.data)
-          setNewFavorite(response.data)
+          fetchBookReviews()
+          // setNewFavorite(response.data)
     } catch (error) {
         
     }
@@ -67,9 +68,6 @@ const BookDetailsPage = () => {
 
   useEffect(() => {
     fetchBookDetails();
-  }, [bookId]);
-
-  useEffect(() => {
     fetchBookReviews();
   }, [bookId]);
 
@@ -81,7 +79,8 @@ const BookDetailsPage = () => {
       ) : (
         <div>
           <div>
-            <Book bookDetails={bookDetails} bookReviews={bookReviews} newFavorite={newFavorite} />
+            <Book bookDetails={bookDetails} bookReviews={bookReviews} 
+            newFavorite={newFavorite} postNewFavorite={postNewFavorite}/>
           </div>
           <br></br>
           <div>

@@ -9,6 +9,7 @@ const ReviewList = ({bookReviews}) => {
             {bookReviews.reviews[0] && bookReviews.reviews.map((item => 
             <p>
             {item.text} 
+            {item.rating} 
             </p>
             ))}
             
